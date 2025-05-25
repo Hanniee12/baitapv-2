@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Modul 10 - Tính tiền điện</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f4f4f4;
+    }
+
+    .toggle-btn {
+      padding: 10px 20px;
+      margin: 10px 5px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn-csharp { background-color: #28a745; }
+    .btn-cpp2 { background-color: #6f42c1; }
+
+    .toggle-btn:hover {
+      opacity: 0.9;
+    }
+
+    .code-block {
+      margin-top: 20px;
+      display: none;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 5px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📘 Modul 10 - Tính tiền điện</h1>
+
+  <button class="toggle-btn btn-cpp2" onclick="toggleCode('cver2')">🔵 Code C</button>
+  <button class="toggle-btn" onclick="toggleCode('cpp')">🔷 Code C++</button>
+  <button class="toggle-btn btn-csharp" onclick="toggleCode('csharp')">🟢 Code C#</button>
+
+  <!-- Code C++ phiên bản mới (dùng cout.imbue) -->
+  <div id="code-cver2" class="code-block">
+<code>#include <stdio.h>
+
+double tinhTienDien(int kWh) {
+    double tien = 0;
+
+    if (kWh <= 0) return 0;
+
+    if (kWh <= 50) {
+        tien = kWh * 1678;
+    } else if (kWh <= 100) {
+        tien = 50 * 1678 + (kWh - 50) * 1734;
+    } else if (kWh <= 200) {
+        tien = 50 * 1678 + 50 * 1734 + (kWh - 100) * 2014;
+    } else if (kWh <= 300) {
+        tien = 50 * 1678 + 50 * 1734 + 100 * 2014 + (kWh - 200) * 2536;
+    } else if (kWh <= 400) {
+        tien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + (kWh - 300) * 2834;
+    } else {
+        tien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + 100 * 2834 + (kWh - 400) * 2927;
+    }
+
+    return tien;
+}
+
+int main() {
+    int soDien;
+    printf("Nhap so dien tieu thu (kWh): ");
+    scanf("%d", &soDien);
+
+    if (soDien < 0) {
+        printf("So dien khong hop le!\n");
+        return 1;
+    }
+
+    double tongTien = tinhTienDien(soDien);
+    printf("Tien dien phai dong: %.0f VND\n", tongTien);
+
+    return 0;
+}
+
+</code>
+  </div>
+
+  <!-- Code C++ bản cũ -->
+  <div id="code-cpp" class="code-block">
+<code>#include &lt;iostream&gt;
+using namespace std;
+
+double tinhTienDien(int kWh) {
+    double tien = 0;
+
+    if (kWh &lt;= 0) return 0;
+
+    if (kWh &lt;= 50) {
+        tien = kWh * 1678;
+    } else if (kWh &lt;= 100) {
+        tien = 50 * 1678 + (kWh - 50) * 1734;
+    } else if (kWh &lt;= 200) {
+        tien = 50 * 1678 + 50 * 1734 + (kWh - 100) * 2014;
+    } else if (kWh &lt;= 300) {
+        tien = 50 * 1678 + 50 * 1734 + 100 * 2014 + (kWh - 200) * 2536;
+    } else if (kWh &lt;= 400) {
+        tien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + (kWh - 300) * 2834;
+    } else {
+        tien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + 100 * 2834 + (kWh - 400) * 2927;
+    }
+
+    return tien;
+}
+
+int main() {
+    int soDien;
+
+    cout &lt;&lt; &quot;Nhap so dien tieu thu (kWh): &quot;;
+    cin &gt;&gt; soDien;
+
+    if (soDien &lt; 0) {
+        cout &lt;&lt; &quot;So dien khong hop le!&quot; &lt;&lt; endl;
+        return 1;
+    }
+
+    double tongTien = tinhTienDien(soDien);
+    cout &lt;&lt; &quot;Tien dien phai dong: &quot; &lt;&lt; tongTien &lt;&lt; &quot; VND&quot; &lt;&lt; endl;
+
+    return 0;
+}
+
+</code>
+  </div>
+
+  <!-- Code C# -->
+  <div id="code-csharp" class="code-block">
+<code>using System;
+
+class Program
+{
+    static double TinhTienDien(int kWh)
+    {
+        double tien = 0;
+
+        if (kWh &lt;= 0) return 0;
+
+        if (kWh &lt;= 50)
+            tien = kWh * 1678;
+        else if (kWh &lt;= 100)
+            tien = 50 * 1678 + (kWh - 50) * 1734;
+        else if (kWh &lt;= 200)
+            tien = 50 * 1678 + 50 * 1734 + (kWh - 100) * 2014;
+        else if (kWh &lt;= 300)
+            tien = 50 * 1678 + 50 * 1734 + 100 * 2014 + (kWh - 200) * 2536;
+        else if (kWh &lt;= 400)
+            tien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + (kWh - 300) * 2834;
+        else
+            tien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + 100 * 2834 + (kWh - 400) * 2927;
+
+        return tien;
+    }
+
+    static void Main()
+    {
+        Console.Write(&quot;Nhap so dien tieu thu (kWh): &quot;);
+        int soDien;
+        if (!int.TryParse(Console.ReadLine(), out soDien) || soDien &lt; 0)
+        {
+            Console.WriteLine(&quot;So dien khong hop le!&quot;);
+            return;
+        }
+
+        double tongTien = TinhTienDien(soDien);
+        Console.WriteLine(&quot;Tien dien phai dong: {0} VND&quot;, tongTien);
+    }
+}
+
+</code>
+  </div>
+
+  <script>
+    function toggleCode(id) {
+      const blocks = document.querySelectorAll(".code-block");
+      blocks.forEach(div => div.style.display = "none");
+      const showDiv = document.getElementById("code-" + id);
+      if (showDiv) showDiv.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
