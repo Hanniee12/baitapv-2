@@ -131,12 +131,12 @@ int main() {
     cout &lt;&lt; &quot;Nhap so dien tieu thu (kWh): &quot;;
     cin &gt;&gt; soDien_dien;
 
-    if (soDien &lt; 0) {
+    if (soDien_dien &lt; 0) {
         cout &lt;&lt; &quot;So dien khong hop le!&quot; &lt;&lt; endl;
         return 1;
     }
 
-    double tongTien = tinhTienDien(soDien);
+    double tongTien = tinhTienDien(soDien_dien);
     cout &lt;&lt; &quot;Tien dien phai dong: &quot; &lt;&lt; tongTien &lt;&lt; &quot; VND&quot; &lt;&lt; endl;
 
     return 0;
@@ -153,38 +153,38 @@ class Program
 {
     static double TinhTienDien(int kWh)
     {
-        double tien = 0;
+        double tien_dien = 0;
 
         if (kWh &lt;= 0) return 0;
 
         if (kWh &lt;= 50)
-            tien = kWh * 1678;
+            tien_dien = kWh * 1678;
         else if (kWh &lt;= 100)
-            tien = 50 * 1678 + (kWh - 50) * 1734;
+            tien_dien = 50 * 1678 + (kWh - 50) * 1734;
         else if (kWh &lt;= 200)
-            tien = 50 * 1678 + 50 * 1734 + (kWh - 100) * 2014;
+            tien_dien = 50 * 1678 + 50 * 1734 + (kWh - 100) * 2014;
         else if (kWh &lt;= 300)
-            tien = 50 * 1678 + 50 * 1734 + 100 * 2014 + (kWh - 200) * 2536;
+            tien_dien = 50 * 1678 + 50 * 1734 + 100 * 2014 + (kWh - 200) * 2536;
         else if (kWh &lt;= 400)
-            tien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + (kWh - 300) * 2834;
+            tien_dien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + (kWh - 300) * 2834;
         else
-            tien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + 100 * 2834 + (kWh - 400) * 2927;
+            tien_dien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + 100 * 2834 + (kWh - 400) * 2927;
 
-        return tien;
+        return tien_dien;
     }
 
     static void Main()
     {
         Console.Write(&quot;Nhap so dien tieu thu (kWh): &quot;);
-        int soDien;
-        if (!int.TryParse(Console.ReadLine(), out soDien) || soDien &lt; 0)
+        int soDien_dien;
+        if (!int.TryParse(Console.ReadLine(), out soDien_dien) || soDien_dien &lt; 0)
         {
             Console.WriteLine(&quot;So dien khong hop le!&quot;);
             return;
         }
 
-        double tongTien = TinhTienDien(soDien);
-        Console.WriteLine(&quot;Tien dien phai dong: {0} VND&quot;, tongTien);
+        double tongTien_dien = TinhTienDien(soDien_dien);
+        Console.WriteLine(&quot;Tien dien phai dong: {0} VND&quot;, tongTien_dien);
     }
 }
 
