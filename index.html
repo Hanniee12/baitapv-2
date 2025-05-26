@@ -1,228 +1,455 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hanniee ❄🌸</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
 
-        body {
-            background-color: #ffe4e1; /* Hồng nhạt */
-            overflow-x: hidden;
-            position: relative;
-        }
+      body {
+        background-color: #ffe4e1; /* Hồng nhạt */
+        overflow-x: hidden;
+        position: relative;
+      }
 
-        .container {
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 10;
-        }
+      .container {
+        max-width: 600px;
+        margin: 30px auto;
+        padding: 20px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 10;
+      }
 
-        .menu {
-            display: flex;
-            justify-content: space-around;
-            background: #ff69b4;
-            padding: 10px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
+      .menu {
+        display: flex;
+        justify-content: space-around;
+        background: #ff69b4;
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+      }
 
-        .menu button {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+      .menu button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+      }
 
-        .menu button:hover {
-            transform: scale(1.1);
-            text-decoration: underline;
-        }
+      .menu button:hover {
+        transform: scale(1.1);
+        text-decoration: underline;
+      }
 
-        .section {
-            display: none;
-            animation: fadeIn 0.5s;
-        }
+      .section {
+        display: none;
+        animation: fadeIn 0.5s;
+      }
 
-        .active {
-            display: block;
-        }
+      .active {
+        display: block;
+      }
 
-        .title {
-            text-align: center;
-            font-size: 26px;
-            font-weight: bold;
-            color: #ff69b4;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(255, 20, 147, 0.2);
-        }
+      .title {
+        text-align: center;
+        font-size: 26px;
+        font-weight: bold;
+        color: #ff69b4;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 8px rgba(255, 20, 147, 0.2);
+      }
 
-        .download-btn {
-            display: block;
-            width: 100%;
-            max-width: 350px;
-            background: #ff69b4;
-            color: white;
-            text-align: center;
-            padding: 12px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            margin: 10px auto;
-            transition: 0.3s;
-        }
+      .download-btn {
+        display: block;
+        width: 100%;
+        max-width: 350px;
+        background: #ff69b4;
+        color: white;
+        text-align: center;
+        padding: 12px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 10px auto;
+        transition: 0.3s;
+      }
 
-        .download-btn:hover {
-            background: #ff1493;
-            transform: scale(1.05);
-        }
+      .download-btn:hover {
+        background: #ff1493;
+        transform: scale(1.05);
+      }
 
-        /* Hiệu ứng tuyết rơi */
-        .snowflake {
-            position: fixed;
-            top: -10px;
-            color: white;
-            font-size: 15px;
-            opacity: 0.8;
-            user-select: none;
-            z-index: 1;
-            animation: fall linear infinite;
-        }
+      /* Hiệu ứng tuyết rơi */
+      .snowflake {
+        position: fixed;
+        top: -10px;
+        color: white;
+        font-size: 15px;
+        opacity: 0.8;
+        user-select: none;
+        z-index: 1;
+        animation: fall linear infinite;
+      }
 
-        @keyframes fall {
-            0% { transform: translateY(0); opacity: 0; }
-            20% { opacity: 1; }
-            100% { transform: translateY(100vh); opacity: 0; }
+      @keyframes fall {
+        0% {
+          transform: translateY(0);
+          opacity: 0;
         }
+        20% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+      }
 
-        /* Hiệu ứng hoa nở khi click */
-        .flower {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background-image: url('https://i.imgur.com/vxrJFCg.png');
-            background-size: cover;
-            pointer-events: none;
-            animation: bloom 0.6s linear;
-        }
+      /* Hiệu ứng hoa nở khi click */
+      .flower {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-image: url("https://i.imgur.com/vxrJFCg.png");
+        background-size: cover;
+        pointer-events: none;
+        animation: bloom 0.6s linear;
+      }
 
-        @keyframes bloom {
-            0% { transform: scale(0); opacity: 1; }
-            100% { transform: scale(1.5); opacity: 0; }
+      @keyframes bloom {
+        0% {
+          transform: scale(0);
+          opacity: 1;
         }
+        100% {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+      }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
         }
+        to {
+          opacity: 1;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="menu">
-            <button onclick="showSection('home')">🏠 Trang Chủ</button>
-            <button onclick="showSection('about')">ℹ️ Giới Thiệu</button>
-            <button onclick="showSection('setup')">⚙️ Hướng Dẫn</button>
-        </div>
+      <div class="menu">
+        <button onclick="showSection('home')">🏠 Trang Chủ</button>
+        <button onclick="showSection('about')">ℹ️ Giới Thiệu</button>
+        <button onclick="showSection('setup')">⚙️ Hướng Dẫn</button>
+      </div>
 
-        <!-- Trang Chủ -->
-        <div id="home" class="section active">
-            <div class="title">🌸 Hanniee 🌸</div>
+      <!-- Trang Chủ -->
+      <div id="home" class="section active">
+        <div class="title">🌸 Hanniee 🌸</div>
 
-            <h3>📥 Tải về:</h3>
-        <a class="download-btn" href="./bai_excel.xlsx" target="_blank">Modul 1</a>
-        <a class="download-btn" href="./mouble_2.accdb" target="_blank">Modul 2</a>
+        <h3>📥 Tải về:</h3>
+        <a class="download-btn" href="./bai_excel.xlsx" target="_blank"
+          >Modul 1</a
+        >
+        <a class="download-btn" href="./mouble_2.accdb" target="_blank"
+          >Modul 2</a
+        >
         <a class="download-btn" href="./c.psd" target="_blank">Modul 3</a>
-        <a class="download-btn" href="./moudle 4.pptx" target="_blank">Modul 4</a>
-        <a class="download-btn" href="./Mouble_5.accdb" target="_blank">Modul 5</a>
+        <a class="download-btn" href="./moudle 4.pptx" target="_blank"
+          >Modul 4</a
+        >
+        <a class="download-btn" href="./Mouble_5.accdb" target="_blank"
+          >Modul 5</a
+        >
         <a class="download-btn" href="./a.psd" target="_blank">Modul 6</a>
-        <a class="download-btn" href="./Module 7.accdb" target="_blank">Modul 7</a>
+        <a class="download-btn" href="./Module 7.accdb" target="_blank"
+          >Modul 7</a
+        >
         <a class="download-btn" href="./inmdex.html" target="_blank">Modul 8</a>
-        <a class="download-btn" href="./Moudle 9.accdb" target="_blank">Modul 9</a>
-        <a class="download-btn" href="./Module 10.accdb" target="_blank">Modul 10</a>
+        <a class="download-btn" href="./Moudle 9.accdb" target="_blank"
+          >Modul 9</a
+        >
+        <a class="download-btn" href="./Module 10.accdb" target="_blank"
+          >Modul 10</a
+        >
+      </div>
 
+      <div id="about" class="section">
+        <div class="title">ℹ️ Giới Thiệu</div>
+        <p>
+          Hanniee là một tool giúp bạn làm việc với excel dễ dàng hơn, giúp bạn
+          tiết kiệm thời gian và công sức. Tool này được thiết kế để giúp bạn dễ
+          dàng làm việc với excel, giúp bạn tiết kiệm thời gian và công sức.
+          Tool này được thiết kế để giúp bạn dễ dàng làm việc với excel, giúp
+          bạn tiết kiệm thời gian và công sức. Tool này được thiết kế để giúp
+          bạn dễ dàng làm việc với excel, giúp bạn tiết kiệm thời gian và công
+          sức. Tool này được thiết kế để giúp bạn dễ dàng làm việc với excel,
+          giúp bạn tiết kiệm thời gian và công
+        </p>
+      </div>
+
+      <!-- Hướng Dẫn -->
+      <div id="setup" class="section">
+        <!-- <div class="title">⚙️ Hướng Dẫn Setup Tool Yêu Cầu Phiên Bản Python3.12 Nhé</div> -->
+        <!-- <p>Để sử dụng tool này, bạn cần cài đặt Python 3.12 và các thư viện cần thiết. Dưới đây là hướng dẫn cài đặt:</p>  -->
+        <h1>bấm mà tải đi xem vô đêy là gì ?</h1>
+        <h2>Thui đã bấm rồi thì ủng hộ tui nhé !!!</h2>
+        <h3 style="color: rebeccapurple">MB: 0399456755</h3>
+      </div>
     </div>
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake">🌺</div>
+        <div class="snowflake">💨</div>
+        <div class="snowflake">🏵️</div>
+        <div class="snowflake">🌴</div>
+        <div class="snowflake">🍁</div>
+        <div class="snowflake">🍂</div>
+        <div class="snowflake">🍀</div>
+        <div class="snowflake">☘️</div>
+        <div class="snowflake">⭐</div>
+        <div class="snowflake">🍉</div>
+        <div class="snowflake">🥝</div>
+  <div class="snowflake">🌽</div>
+  <style>
+  @-webkit-keyframes snowflakes-fall {
+    0% {
+      top: -10%
+    }
 
-     
-<div id="about" class="section">
-    <div class="title">ℹ️ Giới Thiệu</div>
-    <p>Hanniee là một tool giúp bạn làm việc với excel dễ dàng hơn, giúp bạn tiết kiệm thời gian và công sức. Tool này được thiết kế để giúp bạn dễ dàng làm việc với excel, giúp bạn tiết kiệm thời gian và công sức. Tool này được thiết kế để giúp bạn dễ dàng làm việc với excel, giúp bạn tiết kiệm thời gian và công sức. Tool này được thiết kế để giúp bạn dễ dàng làm việc với excel, giúp bạn tiết kiệm thời gian và công sức. Tool này được thiết kế để giúp bạn dễ dàng làm việc với excel, giúp bạn tiết kiệm thời gian và công</p>
-    
+    100% {
+      top: 100%
+    }
+  }
 
-   
-</div> 
+  @-webkit-keyframes snowflakes-shake {
 
+    0%,
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0)
+    }
 
-          
-             <!-- Hướng Dẫn -->
- <div id="setup" class="section">
-                    <!-- <div class="title">⚙️ Hướng Dẫn Setup Tool Yêu Cầu Phiên Bản Python3.12 Nhé</div> -->
-                    <!-- <p>Để sử dụng tool này, bạn cần cài đặt Python 3.12 và các thư viện cần thiết. Dưới đây là hướng dẫn cài đặt:</p>  -->
-                    <h1>bấm mà tải đi xem vô đêy là gì ?</h1>  
-                    <h2>Thui đã bấm rồi thì ủng hộ tui nhé !!!</h2>
-                    <h3 style="color: rebeccapurple;">MB: 0399456755</h3>
-                </div>
-    </div>
+    50% {
+      -webkit-transform: translateX(80px);
+      transform: translateX(80px)
+    }
+  }
+
+  @keyframes snowflakes-fall {
+    0% {
+      top: -10%
+    }
+
+    100% {
+      top: 100%
+    }
+  }
+
+  @keyframes snowflakes-shake {
+
+    0%,
+    100% {
+      transform: translateX(0)
+    }
+
+    50% {
+      transform: translateX(80px)
+    }
+  }
+
+  .snowflake {
+    color: #fff;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 5px #000;
+    position: fixed;
+    top: -10%;
+    z-index: 9999;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    -webkit-animation-name: snowflakes-fall, snowflakes-shake;
+    -webkit-animation-duration: 10s, 3s;
+    -webkit-animation-timing-function: linear, ease-in-out;
+    -webkit-animation-iteration-count: infinite, infinite;
+    -webkit-animation-play-state: running, running;
+    animation-name: snowflakes-fall, snowflakes-shake;
+    animation-duration: 10s, 3s;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite, infinite;
+    animation-play-state: running, running;
+  }
+
+  .snowflake:nth-of-type(0) {
+    left: 1%;
+    -webkit-animation-delay: 0s, 0s;
+    animation-delay: 0s, 0s
+  }
+
+  .snowflake:nth-of-type(1) {
+    left: 10%;
+    -webkit-animation-delay: 1s, 1s;
+    animation-delay: 1s, 1s
+  }
+
+  .snowflake:nth-of-type(2) {
+    left: 20%;
+    -webkit-animation-delay: 6s, .5s;
+    animation-delay: 6s, .5s
+  }
+
+  .snowflake:nth-of-type(3) {
+    left: 30%;
+    -webkit-animation-delay: 4s, 2s;
+    animation-delay: 4s, 2s
+  }
+
+  .snowflake:nth-of-type(4) {
+    left: 40%;
+    -webkit-animation-delay: 2s, 2s;
+    animation-delay: 2s, 2s
+  }
+
+  .snowflake:nth-of-type(5) {
+    left: 50%;
+    -webkit-animation-delay: 8s, 3s;
+    animation-delay: 8s, 3s
+  }
+
+  .snowflake:nth-of-type(6) {
+    left: 60%;
+    -webkit-animation-delay: 6s, 2s;
+    animation-delay: 6s, 2s
+  }
+
+  .snowflake:nth-of-type(7) {
+    left: 70%;
+    -webkit-animation-delay: 2.5s, 1s;
+    animation-delay: 2.5s, 1s
+  }
+
+  .snowflake:nth-of-type(8) {
+    left: 80%;
+    -webkit-animation-delay: 1s, 0s;
+    animation-delay: 1s, 0s
+  }
+
+  .snowflake:nth-of-type(9) {
+    left: 90%;
+    -webkit-animation-delay: 3s, 1.5s;
+    animation-delay: 3s, 1.5s
+  }
+
+  .snowflake:nth-of-type(10) {
+    left: 25%;
+    -webkit-animation-delay: 2s, 0s;
+    animation-delay: 2s, 0s
+  }
+
+  .snowflake:nth-of-type(11) {
+    left: 65%;
+    -webkit-animation-delay: 4s, 2.5s;
+    animation-delay: 4s, 2.5s
+  }
+</style>
+  </div>
 
     <script>
-        function showSection(sectionId) {
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(sectionId).classList.add('active');
-        }
-
-        // Tạo hiệu ứng tuyết rơi
-        function createSnowflake() {
-            const snowflake = document.createElement("div");
-            snowflake.classList.add("snowflake");
-            snowflake.innerHTML = "❄"; // Icon bông tuyết
-
-            // Vị trí ngẫu nhiên theo chiều ngang
-            snowflake.style.left = Math.random() * window.innerWidth + "px";
-            
-            // Ngẫu nhiên tốc độ rơi
-            let duration = Math.random() * 5 + 3; // 3 - 8 giây
-            snowflake.style.animationDuration = duration + "s";
-
-            document.body.appendChild(snowflake);
-
-            // Xóa bông tuyết khi rơi xong
-            setTimeout(() => {
-                snowflake.remove();
-            }, duration * 1000);
-        }
-
-        // Tạo tuyết rơi liên tục
-        setInterval(createSnowflake, 200);
-
-        // Hiệu ứng hoa nở khi click
-        document.addEventListener('click', function(event) {
-            const flower = document.createElement('div');
-            flower.classList.add('flower');
-            flower.style.left = `${event.clientX - 15}px`;
-            flower.style.top = `${event.clientY - 15}px`;
-            document.body.appendChild(flower);
-
-            setTimeout(() => {
-                flower.remove();
-            }, 600);
+      function showSection(sectionId) {
+        document.querySelectorAll(".section").forEach((section) => {
+          section.classList.remove("active");
         });
+        document.getElementById(sectionId).classList.add("active");
+      }
+
+      // // Tạo hiệu ứng tuyết rơi
+      // function createSnowflake() {
+      //   const snowflake = document.createElement("div");
+      //   snowflake.classList.add("snowflake");
+      //   snowflake.innerHTML = "❄","🌽"; // Icon bông tuyết
+
+      //   // Vị trí ngẫu nhiên theo chiều ngang
+      //   snowflake.style.left = Math.random() * window.innerWidth + "px";
+
+      //   // Ngẫu nhiên tốc độ rơi
+      //   let duration = Math.random() * 5 + 3; // 3 - 8 giây
+      //   snowflake.style.animationDuration = duration + "s";
+
+      //   document.body.appendChild(snowflake);
+
+      //   // Xóa bông tuyết khi rơi xong
+      //   setTimeout(() => {
+      //     snowflake.remove();
+      //   }, duration * 1000);
+      // }
+
+      // // Tạo tuyết rơi liên tục
+      // setInterval(createSnowflake, 200);
+
+      // // Hiệu ứng hoa nở khi click
+      // document.addEventListener("click", function (event) {
+      //   const flower = document.createElement("div");
+      //   flower.classList.add("flower");
+      //   flower.style.left = `${event.clientX - 15}px`;
+      //   flower.style.top = `${event.clientY - 15}px`;
+      //   document.body.appendChild(flower);
+
+      //   setTimeout(() => {
+      //     flower.remove();
+      //   }, 600);
+      // });
     </script>
-</body>
+    <script type="text/javascript">
+  var fps = document.getElementById("fps");
+  var startTime = Date.now();
+  var frame = 0;
+
+  function tick() {
+    var time = Date.now();
+    frame++;
+    if (time - startTime > 1000) {
+      fps.innerHTML = (frame / ((time - startTime) / 1000)).toFixed(1);
+      startTime = time;
+      frame = 0;
+    }
+    window.requestAnimationFrame(tick);
+  }
+  tick();
+</script>
+</div>
+<script>
+  etElementById("fps");
+  var startTime = Date.now();
+  var frame = 0;
+
+  function tick() {
+    var time = Date.now();
+    frame++;
+    if (time - startTime > 1000) {
+      fps.innerHTML = (frame / ((time - startTime) / 1000)).toFixed(1);
+      startTime = time;
+      frame = 0;
+    }
+    window.requestAnimationFrame(tick);
+  }
+  tick();
+</script>
+  </body>
 </html>
