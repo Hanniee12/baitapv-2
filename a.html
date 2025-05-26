@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hanniee 💥</title>
+  <style>
+  body {
+  margin: 0;
+  padding: 0;
+  background-image: url('./713a3272124cc57ba9e9fb7f59e9ab3b.gif');
+  background-repeat: no-repeat;
+  background-size: contain; /* Hoặc cover nếu muốn ảnh phủ hết */
+  background-position: center center;
+  background-attachment: fixed; /* Giữ ảnh cố định khi scroll */
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh; /* Đảm bảo chiều cao full màn hình */
+}
+
+
+    .container {
+      background: white;
+      border-radius: 15px;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      width: 600px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    .nav button {
+      background: hotpink;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .logo {
+      font-size: 24px;
+      color: hotpink;
+      margin-bottom: 20px;
+    }
+
+    .download-btn {
+      background: hotpink;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 10px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    /* Xe trái & phải */
+
+    h1 {
+      color: hotpink;
+      text-align: center;
+      font-size: 50px;
+      position: absolute;
+      top: 20px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+    <h1>Đang load vào trang...</h1>
+  <div class="car left-car" id="carLeft"></div>
+  <div class="car right-car" id="carRight"></div>
+  <div id="crash"></div>
+
+ 
+
+  <script>
+    window.onload = function () {
+    const carLeft = document.getElementById("carLeft");
+    const carRight = document.getElementById("carRight");
+    const crash = document.getElementById("crash");
+
+    // Xe chạy vào giữa
+    carLeft.style.left = "calc(50% - 150px)";
+    carRight.style.right = "calc(50% - 150px)";
+
+    // Sau 2 giây, hiện vụ nổ
+    setTimeout(() => {
+        crash.style.transform = "translate(-50%, -50%) scale(1)";
+        crash.style.opacity = 1;
+
+        // Sau 0.7s (cho vụ nổ hiện xong), chuyển trang
+        setTimeout(() => {
+        window.location.href = '';  // hoặc 's.jtml' nếu đúng tên file của bạn
+        }, 700);
+    }, 2000);
+    };
+
+  </script>
+</body>
+</html>
